@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        File f;
-        f=./res/Layout
+        //File f;
+        //f = ./res/Layout;
         setContentView(R.layout.activity_main);
         getString(R.string.app_name);
         //Button b = new Button( this);
