@@ -3,6 +3,7 @@ package com.example.mainactivity;
 import android.os.Bundle;
 import android.text.Layout;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,18 +13,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b;
+
     int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        getString(R.string.app_name);
-        b = findViewById(R.id.button);
+
+        TextView tv = findViewById(R.id.tv);
+        Button b = findViewById(R.id.button);
         b.setOnClickListener(v -> {
             contador++;
-            b.setText(String.valueOf(contador));
+            tv.setText(Integer.toString(contador));
 
         });
     }
