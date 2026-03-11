@@ -12,17 +12,19 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button b;
+    int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        //File f;
-        //f = ./res/Layout;
         setContentView(R.layout.activity_main);
         getString(R.string.app_name);
-        //Button b = new Button( this);
-        //b.setText("asdf");
-        //setContentView(b);
+        b = findViewById(R.id.button);
+        b.setOnClickListener(v -> {
+            contador++;
+            b.setText(String.valueOf(contador));
 
+        });
     }
 }
