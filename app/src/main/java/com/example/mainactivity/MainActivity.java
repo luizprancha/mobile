@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
+
             int min= Integer.parseInt(minStr);
             int max= Integer.parseInt(maxStr);
 
