@@ -3,6 +3,7 @@ package com.example.mainactivity;
 import android.os.Bundle;
 import android.text.Layout;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,9 +17,10 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
 
-    int contador = 0;
     Button b;
     TextView tv;
+    EditText edMin;
+    EditText edMax;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +29,29 @@ public class MainActivity extends AppCompatActivity {
 
         tv = findViewById(R.id.tv);
         b = findViewById(R.id.button);
-        b.setOnClickListener(v -> {
-            contador++;
-            Random random=new Random();
-            int r = random.nextInt( 100);
-            tv.setText(Integer.toString(r));
+        edMin=findViewById(R.id.edMin);
+        edMax=findViewById(R.id.edMax);
 
+        b.setOnClickListener(v -> {
+            String minStr = edMin.getText().toString();
+            String maxStr = edMax.getText().toString();
+            if (minStr.isEmpty()){
+                edMin.setError("Informe o valor minimo");
+                edMin.requestFocus();
+                return;
+            }
+            if (maxStr.isEmpty()){
+                edMax.setError("Informe o valor máximo");
+                edMax.requestFocus();
+                return;
+            }
+
+            int min= Integer.parseInt(minStr);
+            int max= Integer.parseInt(maxStr);
+
+            Random random=new Random();
+            int r = random.nextInt(min, max);
+            tv.setText(Integer.toString(r));
         });
     }
 }
