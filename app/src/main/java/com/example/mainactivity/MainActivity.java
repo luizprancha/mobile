@@ -17,13 +17,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     int contador = 0;
+    Button b;
+    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        TextView tv = findViewById(R.id.tv);
-        Button b = findViewById(R.id.button);
+        tv = findViewById(R.id.tv);
+        b = findViewById(R.id.button);
         b.setOnClickListener(v -> {
             contador++;
             Random random=new Random();
