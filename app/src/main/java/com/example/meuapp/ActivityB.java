@@ -15,28 +15,25 @@ import org.w3c.dom.Text;
 
 public class ActivityB extends AppCompatActivity {
 
-    Button botaoFinish;
+    Button fechar;
     TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main2);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        setContentView(R.layout.activity_b);
+        fechar = findViewById(R.id.fechar);
+        tv = findViewById(R.id.textView);
 
-        tv=findViewById(R.id.textView2);
-        Intent i = getIntent();
-        Bundle b=i.getExtras();
+        Intent i= getIntent();
+        Bundle b = i.getExtras();
         String msg = b.getString("msg");
+//      String txt=getIntent().getExtras().getString( "msg");
+
         tv.setText(msg);
 
-        botaoFinish=findViewById(R.id.botao);
-        botaoFinish.setOnClickListener(v -> {
+        fechar.setOnClickListener(v -> {
             finish();
         });
 
