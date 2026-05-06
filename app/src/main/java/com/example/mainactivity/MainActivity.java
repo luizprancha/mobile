@@ -14,28 +14,23 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    ListView lv;
 
-    String nomes[] = new String[]{"Daniel", "Sofia", "Prancha", "Iran", "Fernandinho", "Borracha"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        getString(R.string.app_name);
+        lv=findViewById(R.id.listView);
 
-        ListView listView = findViewById(R.id.listView);
-        ArrayAdapter<String> arrayAdapter= new ArrayAdapter<>(
+        PlanetaController pcontroler=new PlanetaController();
+
+        AdapterPlaneta adaptador = new AdapterPlaneta(
                 this,
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1,
-                nomes
-        );
+                //redssfghç
+                pcontroler.listaPlanetas();
+        )
 
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            Intent i = new Intent(getApplicationContext(),ActivityB.class);
-            i.putExtra("nome", nomes[position]);
-            startActivity(i);
-        });
+        lv.setAdapter(adaptador);
     }
 }
