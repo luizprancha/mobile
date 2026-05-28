@@ -8,6 +8,6 @@ public class Nota {
     public Nota(Integer id, String titulo, String nota) {
         this.id = id;
         this.titulo = titulo;
-        this.nota = nota;a
+        this.nota = nota;
     }
 }
